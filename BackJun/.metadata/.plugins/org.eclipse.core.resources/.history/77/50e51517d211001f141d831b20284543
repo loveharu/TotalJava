@@ -57,7 +57,7 @@ public class PlayGame {
 			int y = user.getY()+10;
 			user.setY(y);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
-			matchPosition();
+			//matchPosition();
 			System.out.println(result);
 			break;
 		case "a":

@@ -57,30 +57,30 @@ public class PlayGame {
 			int y = user.getY()+10;
 			user.setY(y);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
-			matchPosition();
+			//matchPosition();
 			System.out.println(result);
 			break;
 		case "a":
 			System.out.println("왼쪽으로 이동");
-			int xLeft = user.getX() - 10;
-			user.setX(xLeft);
-			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
+			int xLeft = userPos.getX() - 10;
+			userPos.setX(xLeft);
+			System.out.println("현재 위치 x :" + userPos.getX() + ", y: " + userPos.getY());
 			matchPosition();
 			System.out.println(result);
 			break;
 		case "s":
 			System.out.println("아래로 이동");
-			int yDown = user.getY() - 10;
+			int yDown = userPos.getY() - 10;
 			matchPosition();
-			user.setY(yDown);
-			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
+			userPos.setY(yDown);
+			System.out.println("현재 위치 x :" + userPos.getX() + ", y: " + userPos.getY());
 			System.out.println(result);
 			break;
 		case "d":
 			System.out.println("오른쪽으로 이동");
-			int xRight = user.getX() + 10;
-			user.setX(xRight);
-			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
+			int xRight = userPos.getX() + 10;
+			userPos.setX(xRight);
+			System.out.println("현재 위치 x :" + userPos.getX() + ", y: " + userPos.getY());
 			matchPosition();
 			System.out.println(result);
 			break;
@@ -132,7 +132,7 @@ public class PlayGame {
 				break;
 			case 5:
 				System.out.println("몬스터 포지션 매칭");
-				//matchPosition();
+				matchPosition();
 				break;
 			default:
 				System.out.println("잘못된 숫자 입력!");
@@ -155,7 +155,7 @@ public class PlayGame {
 			int y = monster.getY();
 			System.out.println("몬스터 y" +y);
 			
-			if (user.getX() == x && user.getY() == y) {
+			if (userPos.getX() == x && userPos.getY() == y) {
 				System.out.println("일반 몬스터와 충돌!");
 				result = 1;
 			}

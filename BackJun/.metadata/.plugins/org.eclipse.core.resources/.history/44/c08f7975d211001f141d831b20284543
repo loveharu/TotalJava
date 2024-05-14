@@ -57,7 +57,7 @@ public class PlayGame {
 			int y = user.getY()+10;
 			user.setY(y);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
-			matchPosition();
+			//matchPosition();
 			System.out.println(result);
 			break;
 		case "a":
@@ -65,13 +65,13 @@ public class PlayGame {
 			int xLeft = user.getX() - 10;
 			user.setX(xLeft);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
-			matchPosition();
+			//matchPosition();
 			System.out.println(result);
 			break;
 		case "s":
 			System.out.println("아래로 이동");
 			int yDown = user.getY() - 10;
-			matchPosition();
+			//matchPosition();
 			user.setY(yDown);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
 			System.out.println(result);
@@ -81,7 +81,7 @@ public class PlayGame {
 			int xRight = user.getX() + 10;
 			user.setX(xRight);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
-			matchPosition();
+			//matchPosition();
 			System.out.println(result);
 			break;
 		default:

@@ -57,7 +57,7 @@ public class PlayGame {
 			int y = user.getY()+10;
 			user.setY(y);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
-			matchPosition();
+			//matchPosition();
 			System.out.println(result);
 			break;
 		case "a":
@@ -132,7 +132,7 @@ public class PlayGame {
 				break;
 			case 5:
 				System.out.println("몬스터 포지션 매칭");
-				//matchPosition();
+				matchPosition();
 				break;
 			default:
 				System.out.println("잘못된 숫자 입력!");

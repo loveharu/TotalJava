@@ -11,7 +11,7 @@ public class MonsterInfo {
 	private int monsterIndex;
 	private int x;
 	private int y;
-	private List<Position> monPosition = new ArrayList();
+	
 
 	public MonsterInfo(int monsterIndex, int x, int y) {
 		super();
@@ -19,13 +19,11 @@ public class MonsterInfo {
 		this.x = x;
 		this.y = y;
 		setMonster();
-		setPos();
+		
 
 	}
 
-	public List getMonPosition() {
-		return monPosition;
-	}
+
 
 	public MonsterInfo() {
 
@@ -67,9 +65,7 @@ public class MonsterInfo {
 		return y;
 	}
 
-	public void setMonPosition(List<Position> monPosition) {
-		this.monPosition = monPosition;
-	}
+
 
 	public void setY(int y) {
 		this.y = y;
@@ -79,9 +75,7 @@ public class MonsterInfo {
 		NORMAL, MAGIC, NAMED, BOSS
 	}
 
-	void setPos() {
-		monPosition.add(new Position(x, y));
-	}
+
 
 	public void setMonster() {
 

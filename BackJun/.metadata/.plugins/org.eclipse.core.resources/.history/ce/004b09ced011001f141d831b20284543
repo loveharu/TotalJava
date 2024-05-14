@@ -9,8 +9,6 @@ public class UserInfo {
 	private int userHP = 200;
 	private int damage;
 	private weaponType weapon;
-	private int x= 0;
-	private int y= 0;
 
 	public UserInfo() {
 		super();
@@ -24,22 +22,6 @@ public class UserInfo {
 
 	public void setWeaponIndex(int weaponIndex) {
 		this.weaponIndex = weaponIndex;
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
 	}
 
 	public int getUserHP() {
