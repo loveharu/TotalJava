@@ -1,0 +1,24 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+	
+		int count = 1;
+		int sum	= 0;
+	while(sum<100) {
+		sum += count;
+		count++;
+		System.out.println(count+" : "+sum);
+	}
+
+	}
+	
+	
+
+}

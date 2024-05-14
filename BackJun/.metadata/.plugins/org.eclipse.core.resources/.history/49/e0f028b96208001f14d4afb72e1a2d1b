@@ -1,0 +1,27 @@
+package tjoen;
+
+import java.util.*;
+public class Day3 {
+
+	
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	int age = sc.nextInt();
+	sc.nextLine();
+	boolean a = Boolean.parseBoolean("sc.nextLine()");
+	
+	if(age<=15) {
+		if(a)
+			System.out.println("1200원");
+		else
+		System.out.println("1300원");
+	}else if(age>15) 
+		if(a)
+			System.out.println("1500원");
+		else
+	    System.out.println("1600원");		
+	
+	
+	}	
+	
+}

@@ -1,0 +1,25 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		List<Integer> list = new ArrayList<Integer>();
+		int num = sc.nextInt();
+		int num2 = sc.nextInt();
+		for(int i = 1;i<=100;i++) {
+			if(100 % i == 0) {
+				list.add(i);
+			}
+		}
+		System.out.println(list);
+
+	}
+
+}

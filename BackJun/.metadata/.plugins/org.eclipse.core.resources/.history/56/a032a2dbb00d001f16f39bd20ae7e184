@@ -1,0 +1,34 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	    int account=0;
+
+
+
+		while (true) {
+			System.out.println("원하는 메뉴 입력 1. 입금 2. 출금 3.종료");
+			int menu = sc.nextInt();
+			switch (menu) {
+			case 1:
+				int inputMoney= sc.nextInt();
+				account += inputMoney;
+				break;
+			case 2:
+				int outputMoney= sc.nextInt();
+				account -= outputMoney;
+				break;
+			case 3:
+				System.exit(0);
+			}
+		}
+	}
+
+}

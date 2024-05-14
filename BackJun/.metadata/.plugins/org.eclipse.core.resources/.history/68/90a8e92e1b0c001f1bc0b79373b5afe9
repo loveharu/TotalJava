@@ -1,0 +1,43 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	int month = sc.nextInt();
+	int sort=0;
+	if(month == 1 || month == 2 || month == 12)
+		sort = 1;
+    else if(month == 3 || month == 4 || month == 5)
+    	sort = 2;
+    else if(month == 6 || month == 7 || month == 8)
+    	sort = 3;
+    else if(month == 9 || month == 10 || month == 11)
+    	sort = 4;
+    
+	switch(sort) 	 {
+		case 1:
+			System.out.println("봄");
+			break;
+        case 2:
+        	System.out.println("봄");
+        	break;
+        case 3:
+        	System.out.println("봄");
+        	break;
+        case 4:
+        	System.out.println("봄");
+        	break;
+      
+        	
+        	
+		
+	}
+	}
+
+}

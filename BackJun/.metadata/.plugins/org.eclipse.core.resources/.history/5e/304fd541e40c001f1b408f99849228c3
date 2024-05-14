@@ -1,0 +1,30 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	int wrongConunt=0;
+	int rightCount=0;
+	int sum=0;
+	while(rightCount<3) {
+		int num = sc.nextInt();
+        if(num>0&& num<11) {
+        	rightCount++;
+        	sum += num;
+        }
+        else      
+        	wrongConunt++;
+            }
+	System.out.println(wrongConunt);
+	System.out.println(sum);
+	}
+	
+	
+
+}

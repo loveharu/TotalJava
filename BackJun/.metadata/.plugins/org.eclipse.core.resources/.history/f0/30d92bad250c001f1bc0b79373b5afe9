@@ -1,0 +1,160 @@
+package Week2;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class PlayGame {
+
+	List<Position> listPostion = new ArrayList();
+	MonsterSpawn spawn = new MonsterSpawn();
+	Position userPos = new Position(0, 0);
+	List<MonsterInfo> normal;
+	List<MonsterInfo> magic;
+	List<MonsterInfo> named;
+	List<MonsterInfo> boss;
+	int result;
+	
+
+
+    // GameManager 객체 설정 메서드
+    
+	public PlayGame() {
+		this.listPostion.add(userPos);
+		MonsterSpawn monster = new MonsterSpawn();
+		this.normal = monster.getMonsterNomral();
+		this.magic = monster.getMonsterMagic();
+		this.named = monster.getMonsterNamed();
+		this.boss = monster.getMonsterBoss();
+		
+		
+	}
+
+	Scanner sc = new Scanner(System.in);
+	
+
+	void startGame() {
+		while (true) {
+			System.out.println("게임 시작(1.시작 2.종료)");
+			int menu = sc.nextInt();
+			sc.nextLine();
+			switch (menu) {
+			case 1:
+				UserInfo user = new UserInfo();
+				MonsterSpawn spawn = new MonsterSpawn();
+				break;
+			case 2:
+				System.exit(0);
+				break;
+			default:
+				System.out.println("잘못된 숫자 입력!");
+				break;
+			}
+			if (menu == 1 || menu == 2)
+				break;
+		}
+		doSomething();
+
+	}
+
+	void moveUser() {
+		System.out.println("유저를 이동시켜보세요! (위 = w ,아래 = s ,왼쪽 = a ,오른쪽 = d");
+		String getCmd = sc.nextLine();
+
+		switch (getCmd) {
+		case "w":
+			System.out.println("위로 이동");
+			int yUp = userPos.getY() + 10;
+			userPos.setY(yUp);
+			System.out.println("현재 위치 x :" + userPos.getX() + ", y: " + userPos.getY());
+			result = matchPosition();
+			break;
+		case "a":
+			System.out.println("왼쪽으로 이동");
+			int xLeft = userPos.getX() - 10;
+			userPos.setX(xLeft);
+			System.out.println("현재 위치 x :" + userPos.getX() + ", y: " + userPos.getY());
+			break;
+		case "s":
+			System.out.println("아래로 이동");
+			int yDown = userPos.getY() - 10;
+
+			userPos.setY(yDown);
+			System.out.println("현재 위치 x :" + userPos.getX() + ", y: " + userPos.getY());
+			break;
+		case "d":
+			System.out.println("오른쪽으로 이동");
+			int xRight = userPos.getX() + 10;
+			userPos.setX(xRight);
+			System.out.println("현재 위치 x :" + userPos.getX() + ", y: " + userPos.getY());
+			break;
+		default:
+			System.out.println("잘못된 입력!");
+			break;
+		}
+
+	}
+
+	void doSomething() {
+		while (true) {
+			System.out.println("행동을 선택하세요 (1.이동 2. 공격 3. 방어 4. 도주)");
+			int menu = sc.nextInt();
+			sc.nextLine();
+			switch (menu) {
+			case 1:
+				moveUser();
+				
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			default:
+				System.out.println("잘못된 숫자 입력!");
+				break;
+			}
+
+		}
+	}
+	int matchPosition() {
+		for(MonsterInfo monster : normal) {
+			int x = monster.getX();
+			int y = monster.getY();
+			if(userPos.getX() == x && userPos.getY() == y) {
+                System.out.println("일반 몬스터와 충돌!");
+                return 1;
+            }
+		}
+		for(MonsterInfo monster : magic) {
+			int x = monster.getX();
+			int y = monster.getY();
+			if(userPos.getX() == x && userPos.getY() == y) {
+                System.out.println("마법 몬스터와 충돌!");
+                return 2;
+            }
+		}
+		for(MonsterInfo monster : named) {
+			int x = monster.getX();
+			int y = monster.getY();
+			if(userPos.getX() == x && userPos.getY() == y) {
+                System.out.println("네임드 몬스터와 충돌!");
+                return 3;
+            }
+		}
+		for(MonsterInfo monster : boss) {
+			int x = monster.getX();
+			int y = monster.getY();
+			if(userPos.getX() == x && userPos.getY() == y) {
+                System.out.println("보스 몬스터와 충돌!");
+                return 4;
+            }
+			
+		}
+		return 0;
+		
+		
+	}
+
+}

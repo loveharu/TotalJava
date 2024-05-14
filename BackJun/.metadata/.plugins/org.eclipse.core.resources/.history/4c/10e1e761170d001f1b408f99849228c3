@@ -1,0 +1,26 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int length = sc.nextInt();
+		int a[] = new int[length];
+		int j = 1;
+		for (int i = 0; i < a.length; i++) {
+				a[i] = j;
+				j++;
+				if(j > 3)
+					j= 1;
+				System.out.println(a[i]);
+		}
+			
+	}
+
+}

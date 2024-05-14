@@ -1,0 +1,32 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("학생 수 입력");
+		int count = sc.nextInt();
+		boolean[] flag = new boolean[count];
+		for (int i = 0; i < flag.length; i++) {
+			System.out.println(i + "번 학생의 출결 입력(출석 or 결석 ");
+			String input = sc.nextLine();
+			if (input.equals("출석"))
+				flag[i] = true;
+			else if (input.equals("결석"))
+				flag[i] = false;
+			else
+				System.out.println("잘못된 입력");
+		}
+
+	}
+
+	void inputInfo() {
+		
+	}
+}

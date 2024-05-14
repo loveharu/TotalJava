@@ -1,0 +1,28 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		int num2 = sc.nextInt();
+
+		if(num2>num)
+		while (num<= num2) {
+			System.out.println(num+1);
+			num++;
+		}
+		else
+			while (num>= num2) {
+                System.out.println(num+1);
+                num--;
+            }
+	}
+
+}

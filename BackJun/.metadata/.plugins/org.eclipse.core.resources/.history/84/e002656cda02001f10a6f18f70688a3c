@@ -1,0 +1,23 @@
+package stack;
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);		
+		int cmdCount = sc.nextInt();
+		
+		for(int i =0;i<cmdCount;i++) {
+			String cmd = sc.nextLine();
+			String[] pushCmd = cmd.split("\\s");
+			
+			System.out.println(pushCmd[0]);
+			
+		}
+		
+		
+
+	}
+
+}

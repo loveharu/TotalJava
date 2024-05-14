@@ -1,0 +1,22 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int a[] =new int[100];
+		for (int i = 1; i < a.length; i++) {
+			a[i] = i;
+			if(a[i]%2==0)
+			System.out.println(a[i]);
+		}
+		
+	}
+
+}

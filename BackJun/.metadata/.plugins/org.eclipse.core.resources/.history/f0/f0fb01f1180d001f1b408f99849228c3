@@ -1,0 +1,24 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Random rand = new Random();
+		int count = sc.nextInt();
+		int[] dice = new int[count];
+		for(int i = 0; i < count; i++) {
+			int diceRoll = rand.nextInt(6)+1;
+			
+		}
+		
+	    
+	}
+	
+
+}

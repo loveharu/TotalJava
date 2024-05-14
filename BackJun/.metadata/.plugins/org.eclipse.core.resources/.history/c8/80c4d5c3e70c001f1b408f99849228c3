@@ -1,0 +1,22 @@
+package tjoen;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Scanner;
+
+public class Day3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		boolean flag = true;
+		do {
+			String line = sc.nextLine();
+			if (line.equals("종료"))
+				break;
+
+		} while (true);
+
+	}
+
+}
