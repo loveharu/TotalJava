@@ -239,52 +239,52 @@ public class Java05 {
 
 		while (isUseMenu) {
 
-			System.out.println("1.입금 2.출금 3.잔액 조회 4.종료 입력>>");
+		System.out.println("1.입금 2.출금 3.잔액 조회 4.종료 입력>>");
 
-			switch (sc.nextLine()) {
+		switch (sc.nextLine()) {
 
-			case "1":
+		case "1":
 
-				System.out.println("입금액 입력>>");
+		System.out.println("입금액 입력>>");
 
-				inputAccount = Double.parseDouble(sc.nextLine());
+		inputAccount = Double.parseDouble(sc.nextLine());
 
-				account[Java05.LoginUserIndex] += inputAccount;
+		account[Java05.LoginUserIndex] += inputAccount;
 
-				System.out.println(id[Java05.LoginUserIndex] + "님 잔액:" + account[Java05.LoginUserIndex]);
+		System.out.println(id[Java05.LoginUserIndex] + "님 잔액:" + account[Java05.LoginUserIndex]);
 
-				break;
+		break;
 
-			case "2":
+		case "2":
 
-				System.out.println("출금액 출력>>");
+		System.out.println("출금액 출력>>");
 
-				inputAccount = Double.parseDouble(sc.nextLine());
+		inputAccount = Double.parseDouble(sc.nextLine());
 
-				account[Java05.LoginUserIndex] -= inputAccount;
+		account[Java05.LoginUserIndex] -= inputAccount;
 
-				System.out.println(id[Java05.LoginUserIndex] + "님 잔액:" + account[Java05.LoginUserIndex]);
+		System.out.println(id[Java05.LoginUserIndex] + "님 잔액:" + account[Java05.LoginUserIndex]);
 
-				break;
+		break;
 
-			case "3":
+		case "3":
 
-				System.out.println("잔액 조회>>");
+		System.out.println("잔액 조회>>");
 
-				System.out.println(id[Java05.LoginUserIndex] + "님 잔액:" + account[Java05.LoginUserIndex]);
+		System.out.println(id[Java05.LoginUserIndex] + "님 잔액:" + account[Java05.LoginUserIndex]);
 
-				break;
+		break;
 
-			case "4":
+		case "4":
 
-				System.out.println("사용자 메뉴 종료");
+		System.out.println("사용자 메뉴 종료");
 
-				Java05.LoginUserState = Java05.STATE_LOGOUT;
+		Java05.LoginUserState = Java05.STATE_LOGOUT;
 
-				isUseMenu = false;
+		isUseMenu = false;
 
-				break;
-			}
+		break;
+		}
 		}
 	}// main메소드 종료
 

@@ -1,0 +1,21 @@
+package Java05;
+
+import java.util.Scanner;
+
+public class Java05 {
+	public static int STATE_LOGOUT = 0;
+	public static int STATE_USER_LOGIN = 1;
+	public static int STATE_ADMIN_LOGIN = 2;
+	public static int STATE_EXIT = -1;
+	
+	public static String id[] = new String[100];
+	public static String pw[] = new String[100];
+	public static double account[] = new double[100];
+
+	public static void main(String[] args) {
+		// 1명의 관리자와 100명의 은행사용자를 관리하는 프로그램
+		
+	
+	}
+
+}

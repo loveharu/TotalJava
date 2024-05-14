@@ -1,0 +1,28 @@
+package Java05;
+
+import java.util.Scanner;
+
+public class Java05 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int count = 1;
+		int comNumber = 15;
+		int userNumber = 0;
+		while (comNumber != userNumber) {
+			System.out.println(count +"번째" + "컴퓨터의 숫자는?");
+			userNumber = Integer.parseInt(sc.nextLine());
+			count++;
+			
+			if(comNumber < userNumber) 
+				System.out.println("컴퓨터의 숫자보다 큽니다.");
+			else
+				System.out.println("컴퓨터의 숫자보다 작습니다.");
+                
+			
+		}
+
+		System.out.println("종료");
+	}
+
+}

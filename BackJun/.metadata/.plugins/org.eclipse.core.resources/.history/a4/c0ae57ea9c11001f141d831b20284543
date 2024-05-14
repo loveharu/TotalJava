@@ -1,0 +1,136 @@
+package Java05;
+
+import java.util.Scanner;
+
+public class Java05 {
+	public static int STATE_LOGOUT = 0;
+	public static int STATE_USER_LOGIN = 1;
+	public static int STATE_ADMIN_LOGIN = 2;
+	public static int STATE_EXIT = -1;
+
+	public static String id[] = new String[100];
+	public static String pw[] = new String[100];
+	public static double account[] = new double[100];
+	// 관리자정보
+
+	public static String adminId = "admin";
+	public static String adminPw = "1111";
+	
+	
+	public static int totalUserCount = 0;
+	public static int LoginUserIndex = 1;
+	public static int LoginUserState = Java05.STATE_LOGOUT;
+
+	public static java.util.Scanner sc = new java.util.Scanner(System.in);
+	public static String inputId = null;
+	public static String inputPw = null;
+	public static double inputAccount = 0;
+
+	public static void main(String[] args) {
+		// 1명의 관리자와 100명의 은행사용자를 관리하는 프로그램
+		Java05.id[0] = "user1";
+		Java05.pw[0] = "user1";
+		Java05.account[0] = 1000;
+		Java05.id[1] = "user2";
+		Java05.pw[1] = "user2";
+		Java05.account[1] = 2000;
+		Java05.id[2] = "user3";
+		Java05.pw[2] = "user3";
+		Java05.account[2] = 3000;
+		Java05.totalUserCount = 3;
+		
+		while(Java05.LoginUserState!=Java05.STATE_EXIT) {
+
+			//로그인 작업
+
+			System.out.println("아이디와 pw를 입력하세요"+".종료하고 싶으면  EXIT를 입력하세요.");
+			System.out.println("id>>");
+			Java05.inputId=sc.nextLine();
+			System.out.println("pw>>");
+			​
+			//로그인 시도전 초기상태를 로그아웃으로 만듬
+
+			Java05.LoginUserState = Java05.STATE_LOGOUT;
+			for(int i=0;i<Java05.totalUserCount;i++) {
+			//System.out.println(i);
+			if(Java05.id[i].equals(Java05.inputId)) {//id 찾음
+			if(Java05.pw[i].equals(Java05.inputPw)) {
+			//로그인 성공//user1~3 user1~3
+		    System.out.println(id[i]+" 님 로그인 하셨습니다.");
+			Java05.LoginUserIndex=i;
+			Java05.LoginUserState=Java05.STATE_USER_LOGIN;
+			}else {//user1~3  패스워드 틀릴경우
+
+			System.out.println("잘못된 패스워드 입력");
+			}	  break;
+			}
+
+			}
+			if(Java05.LoginUserState!=Java05.STATE_USER_LOGIN) {
+
+				   //관리자인지 확인
+
+				  if(Java05.adminId.equals(Java05.inputId)&&Java05.adminPw.equals
+
+				               (Java05.inputPw)) {
+
+				System.out.println("관리자로 로그인 하였습니다.");//admin 1111
+
+				Java05.LoginUserState=Java05.STATE_ADMIN_LOGIN;
+
+				  }else {
+
+				System.out.println("없는 아이디 입니다. 다시입력해주세요.");
+
+				  }
+
+				}
+
+				    
+
+				//사용자가 프로그램 종료요청시 실행
+
+				if(Java05.inputId.equals("EXIT")) {
+
+				Java05.LoginUserState=Java05.STATE_EXIT;
+				}
+		​
+				switch(Java05.LoginUserState) {
+
+				case Java05.STATE_ADMIN_LOGIN:
+
+				System.out.println("관리자 관련 작업메뉴");
+
+				break;
+
+				case Java05.STATE_USER_LOGIN:
+
+				System.out.println("사용자 관련 작업메뉴");
+
+				break;
+
+				case Java05.STATE_LOGOUT:
+
+				System.out.println("로그아웃된 상태입니다.");
+
+				break;
+
+				case Java05.STATE_EXIT:
+
+				System.out.println("프로그램을 종료합니다.");
+
+				break;
+
+				default:
+
+				System.out.println("알수 없는 문제가 발생한 상태입니다.");
+
+				}
+				}//while문 종료
+
+			System.out.println("프로그램 종료");
+				}// main메소드 종료
+
+// 클래스 종료
+
+}
