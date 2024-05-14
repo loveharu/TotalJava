@@ -144,7 +144,7 @@ public class PlayGame {
 		System.out.println("PlayGame.matchPosition()");
 		List<MonsterInfo> normal = monster.getMonsterNomral();
 		
-//몬스터 객체들의 포짓견값을 못가져오는것이 문제!!
+
 		System.out.println(normal.get(0).getX());
 		System.out.println(normal.get(0).getY());
 		for (MonsterInfo monster : normal) {
