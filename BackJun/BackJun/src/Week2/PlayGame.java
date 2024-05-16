@@ -6,32 +6,33 @@ import java.util.Scanner;
 
 public class PlayGame {
 
-
-	MonsterSpawn spawn = new MonsterSpawn();
-	
-	MonsterSpawn monster = new MonsterSpawn();
+	private List<MonsterInfo> monsters;
 	UserInfo user;
 	int result = 0;
 
 	// GameManager 객체 설정 메서드
 
 	public PlayGame() {
-		
-		
-	
+
+	}
+
+	public PlayGame(List<MonsterInfo> monsters) {
+
+		this.monsters = monsters;
+		System.out.println("킬킬" + this.monsters.get(0).getMonsterName());
 	}
 
 	Scanner sc = new Scanner(System.in);
 
 	void startGame() {
 		while (true) {
+
 			System.out.println("게임 시작(1.시작 2.종료)");
 			int menu = sc.nextInt();
 			sc.nextLine();
 			switch (menu) {
 			case 1:
 				user = new UserInfo();
-				MonsterSpawn spawn = new MonsterSpawn();
 				break;
 			case 2:
 				System.exit(0);
@@ -50,11 +51,11 @@ public class PlayGame {
 	void moveUser() {
 		System.out.println("유저를 이동시켜보세요! (위 = w ,아래 = s ,왼쪽 = a ,오른쪽 = d");
 		String getCmd = sc.nextLine();
-		
+
 		switch (getCmd) {
 		case "w":
 			System.out.println("위로 이동");
-			int y = user.getY()+10;
+			int y = user.getY() + 10;
 			user.setY(y);
 			System.out.println("현재 위치 x :" + user.getX() + ", y: " + user.getY());
 			matchPosition();
@@ -92,8 +93,9 @@ public class PlayGame {
 	}
 
 	void doSomething() {
-		System.out.println("유저의 hp: " + user.getUserHP() + " 유저의 공격력: " + user.getDamage()+  " 유저의 무기는: " + user.getWeapon());
-		
+		System.out.println(
+				"유저의 hp: " + user.getUserHP() + " 유저의 공격력: " + user.getDamage() + " 유저의 무기는: " + user.getWeapon());
+
 		while (true) {
 			System.out.println("행동을 선택하세요 (1.이동 2. 공격 3. 방어 4. 도주)");
 			int menu = sc.nextInt();
@@ -132,7 +134,7 @@ public class PlayGame {
 				break;
 			case 5:
 				System.out.println("몬스터 포지션 매칭");
-				//matchPosition();
+				// matchPosition();
 				break;
 			default:
 				System.out.println("잘못된 숫자 입력!");
@@ -143,56 +145,12 @@ public class PlayGame {
 	}
 
 	void matchPosition() {
-		System.out.println("PlayGame.matchPosition()");
-		List<MonsterInfo> normal = monster.getMonsterNomral();
-		
+
 //몬스터 객체들의 포짓견값을 못가져오는것이 문제!!
-		System.out.println(normal.get(0).getX());
-		System.out.println(normal.get(0).getY());
-		for (MonsterInfo monster : normal) {
-			int x = monster.getX();
-			System.out.println("몬스터 x" +x);
-			int y = monster.getY();
-			System.out.println("몬스터 y" +y);
-			
-			if (user.getX() == x && user.getY() == y) {
-				System.out.println("일반 몬스터와 충돌!");
-				result = 1;
-			}
-		}
-		/*for (MonsterInfo monster : magic) {
-			int x = monster.getX();
-			System.out.println("몬스터 x" +x);
-			int y = monster.getY();
-			System.out.println("몬스터 y" +y);
-			if (userPos.getX() == x && userPos.getY() == y) {
-				System.out.println("마법 몬스터와 충돌!");
-				result = 2;
-			}
-		}
-		for (MonsterInfo monster : named) {
-			int x = monster.getX();
-			System.out.println("몬스터 x" +x);
-			int y = monster.getY();
-			System.out.println("몬스터 y" +y);
-			if (userPos.getX() == x && userPos.getY() == y) {
-				System.out.println("네임드 몬스터와 충돌!");
-			result = 3;
-			}
-		}
-		for (MonsterInfo monster : boss) {
-			int x = monster.getX();
-			System.out.println("몬스터 x" +x);
-			int y = monster.getY();
-			System.out.println("몬스터 y" +y);
-			if (userPos.getX() == x && userPos.getY() == y) {
-				System.out.println("보스 몬스터와 충돌!");
-				result = 4;
-			}*/
-
-		}
+		System.out.println(monsters.get(0).getMonsterName());
+		//for (MonsterInfo info : monsters) {
+			//if(info.getX() == user.getX() && info.getY() == user.getY())
+			//	System.out.println("조우 암수");
 		
-
 	}
-
-
+}

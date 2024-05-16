@@ -7,10 +7,8 @@ import java.util.Random;
 public class MonsterSpawn {
 
 	
-	public List<MonsterInfo> monsterNomral = new ArrayList();
-	public List<MonsterInfo> monsterMagic = new ArrayList();
-	public  List<MonsterInfo> monsterNamed = new ArrayList();
-	public  List<MonsterInfo> monsterBoss = new ArrayList();
+	public List<MonsterInfo> monsters = new ArrayList();
+	
     private boolean exit = false;
 	void spawnMonster() {
 
@@ -27,10 +25,14 @@ public class MonsterSpawn {
 			    do {
 			        yn = random.nextInt(101) - 50;
 			    } while (yn % 10 != 0);
-				MonsterInfo normal = new MonsterInfo(monsterIndex, xn, yn);
-				System.out.println(normal.getX() + "," + normal.getY() + "," + normal.getMonsterName() + ","
-						+ normal.getMonsterHP() + "," + normal.getThisType().toString());
-				monsterNomral.add(normal);
+				MonsterInfo normal = new MonsterInfo(monsterIndex, xn, yn);		
+				monsters.add(normal);			
+				for(MonsterInfo info : monsters) {
+					System.out.println(info.getX() + "," + info.getY() + "," + info.getMonsterName() + ","
+                            + info.getMonsterHP() + "," + info.getThisType().toString());
+					
+				}
+			
 			
 				}
 				for(int i = 0; i < 1; i++) {
@@ -44,10 +46,13 @@ public class MonsterSpawn {
 			    	ym = random.nextInt(101) - 50;
 			    } while (ym % 10 != 0);
 				MonsterInfo magic = new MonsterInfo(monsterIndex, xm, ym);
-				System.out.println(magic.getX() + "," + magic.getY() + "," + magic.getMonsterName() + ","
-						+ magic.getMonsterHP() + "," + magic.getThisType().toString());
-
-				monsterMagic.add(magic);
+				monsters.add(magic);
+				for(MonsterInfo info : monsters) {
+					System.out.println(info.getX() + "," + info.getY() + "," + info.getMonsterName() + ","
+                            + info.getMonsterHP() + "," + info.getThisType().toString());
+					
+				}
+				
 				}
 				
 				for(int i = 0; i < 1;i++) {
@@ -61,10 +66,12 @@ public class MonsterSpawn {
 			    	yN = random.nextInt(101) - 50;
 			    } while (yN % 10 != 0);
 				MonsterInfo named = new MonsterInfo(monsterIndex, xN, yN);
-				System.out.println(named.getX() + "," + named.getY() + "," + named.getMonsterName() + ","
-						+ named.getMonsterHP() + "," + named.getThisType().toString());
-
-				monsterNamed.add(named);
+				monsters.add(named);
+				for(MonsterInfo info : monsters) {
+					System.out.println(info.getX() + "," + info.getY() + "," + info.getMonsterName() + ","
+                            + info.getMonsterHP() + "," + info.getThisType().toString());
+					
+				}
 				}
 				
 				for(int i = 0; i < 1; i++) {		
@@ -78,65 +85,23 @@ public class MonsterSpawn {
 			    	yB = random.nextInt(101) - 50;
 			    } while (yB % 10 != 0);
 				MonsterInfo boss = new MonsterInfo(monsterIndex, xB, yB);
-				System.out.println(boss.getX() + "," + boss.getY() + "," + boss.getMonsterName() + ","
-						+ boss.getMonsterHP() + "," + boss.getThisType().toString());
-
-				monsterBoss.add(boss);
+				monsters.add(boss);
+				for(MonsterInfo info : monsters) {
+					System.out.println(info.getX() + "," + info.getY() + "," + info.getMonsterName() + ","
+                            + info.getMonsterHP() + "," + info.getThisType().toString());
+					
 				}
 				
+				}
+			PlayGame sendInfo = new PlayGame(monsters);
+				
+	}
+	public List<MonsterInfo> getMonsters(){
+		
+		return monsters;
 	}
 		
 	
 
-	public List<MonsterInfo> getMonsterNomral() {
-		return monsterNomral;
-	}
-
-
-
-	public void setMonsterNomral(List<MonsterInfo> monsterNomral) {
-		this.monsterNomral = monsterNomral;
-	}
-
-
-
-	public List<MonsterInfo> getMonsterMagic() {
-		return monsterMagic;
-	}
-
-
-
-	public void setMonsterMagic(List<MonsterInfo> monsterMagic) {
-		this.monsterMagic = monsterMagic;
-	}
-
-
-
-	public List<MonsterInfo> getMonsterNamed() {
-		return monsterNamed;
-	}
-
-
-
-	public void setMonsterNamed(List<MonsterInfo> monsterNamed) {
-		this.monsterNamed = monsterNamed;
-	}
-
-
-
-	public List<MonsterInfo> getMonsterBoss() {
-		return monsterBoss;
-	}
-
-
-
-	public void setMonsterBoss(List<MonsterInfo> monsterBoss) {
-		this.monsterBoss = monsterBoss;
-	}
-
-
-
-	void setMonsterPos() {
-
-	}
+	
 }

@@ -1,0 +1,39 @@
+package MyClass;
+
+class Test {
+	public int age;
+	public String name;
+	
+	public Test() {
+		
+	}
+	void sayHello() {
+		System.out.println("안녕하세요");
+	}
+	void saySomthing(String message) {
+		System.out.println(message);
+		
+	}
+	void setName() {
+		this.name = "홍길동";
+		this.age = 15;
+	}
+	void setName(String name,int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+
+public class InterFace {
+
+	public static void main(String[] args) {
+		int age = 25;
+		String name = "가오";
+		
+		Test human1 = new Test();
+		Test human2 = new Test(name,age);
+
+	}
+
+}
