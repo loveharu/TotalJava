@@ -1,0 +1,68 @@
+package tjoen;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import tjoen.LoginUserState;
+
+public class ArrayListBank {
+	public static LoginUserState LoginUserState = tjoen.LoginUserState.LOGOUT;
+
+	// arrayList에서는 찾은 객체를 담아서 처리하는것이 유리하다.
+	public static BankUser LoginUser = null;
+	// admin 사용자 계정정보
+	public static BankUser adminUser = new BankUser("admin", "1111", 0);
+
+	// 사용자 입력 처리를 위한 변수들
+	public static Scanner sc = new Scanner(System.in);
+	public static String inputId = null;
+	public static String inputPw = null;
+	public static double inputAccount = 0;
+
+	public static void main(String[] args) {
+
+		ArrayList<BankUser> bankUserList = new ArrayList<BankUser>();
+		bankUserList.add(new BankUser("user1", "user1", 0));
+		bankUserList.add(new BankUser("user2", "user2", 0));
+		bankUserList.add(new BankUser("user3", "user3", 0));
+		bankUserList.size();
+
+		while (!LoginUserState.equals(LoginUserState.EXIT)) {
+			System.out.println("종료를 원하면 exit입력");
+			System.out.println("id 입력");
+			ArrayListBank.inputId = sc.nextLine();
+			System.out.println("패스워드 입력");
+			ArrayListBank.inputPw = sc.nextLine();
+			if (inputId.equals("exit")) {
+				LoginUserState = LoginUserState.EXIT;
+				break;
+			}
+			boolean isFlag = true;
+
+			for (BankUser bankUser : bankUserList) {
+				// 로그인 성공시 실행되는 if문
+				if (bankUser.equals(new BankUser(inputId, inputPw, 0))) {
+					System.out.println(bankUser + "님이 로그인 하셨습니다.");
+					LoginUserState = LoginUserState.LOGIN;
+					ArrayListBank.LoginUser = bankUser;
+					isFlag = false;
+					break;
+
+				}
+			}
+			if(isFlag)
+				System.out.println("찾을 수 없는 유저입니다.");
+			// 유저 로그인 실패시 실행되는 if문
+			if(!LoginUserState.equals(LoginUserState.USER_LOGIN)) {
+				if(ArrayListBank.adminUser.equals(new BankUser(inputId,inputPw,0))) {
+					
+				}
+				
+			}
+
+		}
+		System.out.println("프로그램 종료");
+
+	}
+
+}

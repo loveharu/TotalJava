@@ -1,0 +1,150 @@
+package tjoen;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import tjoen.LoginUserState;
+
+public class ArrayListBank {
+	public static LoginUserState LoginUserState = tjoen.LoginUserState.LOGOUT;
+
+	// arrayList에서는 찾은 객체를 담아서 처리하는것이 유리하다.
+	public static BankUser LoginUser = null;
+	// admin 사용자 계정정보
+	public static BankUser adminUser = new BankUser("admin", "1111", 0);
+	// 은행 사용자 유저 관리 arrayList
+	public static ArrayList<BankUser> bankUserList = new ArrayList<BankUser>();
+	// 사용자 입력 처리를 위한 변수들
+	public static Scanner sc = new Scanner(System.in);
+	public static String inputId = null;
+	public static String inputPw = null;
+	public static double inputAccount = 0;
+
+	public static void main(String[] args) {
+
+		// ArrayList<BankUser> bankUserList = new ArrayList<BankUser>();
+		bankUserList.add(new BankUser("user1", "1111", 0));
+		bankUserList.add(new BankUser("user2", "2222", 0));
+		bankUserList.add(new BankUser("user3", "3333", 0));
+		bankUserList.size();
+
+		while (!LoginUserState.equals(LoginUserState.EXIT)) {
+			System.out.println("종료를 원하면 exit입력");
+			System.out.println("id 입력");
+			ArrayListBank.inputId = sc.nextLine();
+			System.out.println("패스워드 입력");
+			ArrayListBank.inputPw = sc.nextLine();
+			if (inputId.equals("exit")) {
+				LoginUserState = LoginUserState.EXIT;
+				break;
+			}
+			boolean isFlag = true;
+
+			for (BankUser bankUser : bankUserList) {
+				// 로그인 성공시 실행되는 if문
+				if (bankUser.equals(new BankUser(inputId, inputPw, 0))) {
+					System.out.println(bankUser.getId() + "님이 로그인 하셨습니다.");
+					LoginUserState = LoginUserState.LOGIN;
+					ArrayListBank.LoginUser = bankUser;
+					isFlag = false;
+					break;
+
+				}
+			}
+			if (isFlag)
+				System.out.println("찾을 수 없는 유저입니다.");
+			// 유저 로그인 실패시 실행되는 if문
+			if (!LoginUserState.equals(LoginUserState.USER_LOGIN)) {
+				if (ArrayListBank.adminUser.equals(new BankUser(inputId, inputPw, 0))) {
+					LoginUserState = LoginUserState.ADMIN_LOGIN;
+
+				} else
+					System.out.println("관리자로그인 실패");
+
+			}
+
+			switch (LoginUserState) {
+
+			case USER_LOGIN:
+				System.out.println("사용자 메뉴 작업");
+
+				boolean isAdminMenu = true;
+				while (isAdminMenu) {
+					System.out.println("관리자 메뉴 작업");
+					System.out.println("1. 계정추가 2. 계정삭제 3.id,pw 변경 4.모든 사용자 출력 5. 종료");
+					switch (sc.nextLine()) {
+					case "1":
+						System.out.println("추가할 id 입력");
+						ArrayListBank.inputId = sc.nextLine();
+						System.out.println("추가할 패스워드 입력");
+						ArrayListBank.inputPw = sc.nextLine();
+						ArrayListBank.bankUserList.add(new BankUser(inputId, inputPw, 0));
+						break;
+					case "2":
+						System.out.println("삭제할 id 입력 >>");
+						ArrayListBank.inputId = sc.nextLine();
+						System.out.println("삭제할 pw 입력 >>");
+						ArrayListBank.inputPw = sc.nextLine();
+						ArrayListBank.inputPw = sc.nextLine();
+						ArrayListBank.bankUserList.remove(new BankUser(inputId, inputPw, 0));
+						break;
+					case "3":
+						BankUser preBankUser;
+						BankUser nextBankUser;
+						System.out.println("변경할 id 입력 >>");
+						ArrayListBank.inputId = sc.nextLine();
+						System.out.println("변경할 pw 입력 >>");
+						ArrayListBank.inputPw = sc.nextLine();
+						preBankUser = new BankUser(inputId, inputPw, 0);
+
+						System.out.println("변경후 id 입력 >>");
+						ArrayListBank.inputId = sc.nextLine();
+						System.out.println("변경후 pw 입력 >>");
+						ArrayListBank.inputPw = sc.nextLine();
+						nextBankUser = new BankUser(inputId, inputPw, preBankUser.getAccount());
+
+						if (ArrayListBank.bankUserList.contains(preBankUser)) {
+
+							int preUserIndex = ArrayListBank.bankUserList.indexOf(preBankUser);
+							ArrayListBank.bankUserList.set(preUserIndex, nextBankUser);
+
+						} else {
+							System.out.println("변경전 유저 정보를 잘못 입력하셨습니다.");
+						}
+						break;
+					case "4":
+						System.out.println("모든 사용자 출력");
+						for(BankUser user : ArrayListBank.bankUserList) {
+							System.out.println(user);
+							
+						}
+						break;
+					case "5":
+						break;
+					default:
+						break;
+					}
+				}
+				break;
+			case ADMIN_LOGIN:
+				System.out.println("관리자 메뉴 작업");
+				break;
+			case LOGOUT:
+				System.out.println("로그인 작업 실패");
+				break;
+			case EXIT:
+				System.out.println("프로그램 종료");
+				break;
+			default:
+				System.out.println("알수없는 프로그램 상태");
+				LoginUserState = LoginUserState.EXIT;
+				break;
+
+			}
+
+		}
+		System.out.println("프로그램 종료");
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package Date0517;
+
+import java.util.ArrayList;
+
+public class MyArrayList {
+
+	public static void main(String[] args) {
+		ArrayList<String> arr1 = new ArrayList<String>();
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		for(int i = 1; i <= 6; i++)
+			arr.add(i);
+		
+		for(int i : arr)
+			System.out.print(i+" ");
+		
+		arr.add(2,9);
+		
+		System.out.println();
+		for(int i : arr)
+			System.out.print(i+" ");
+		
+		
+	}
+
+}

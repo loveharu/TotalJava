@@ -1,0 +1,41 @@
+package tjoen;
+//클래서 필드 , static 필드 ,전역 필드
+//static 유무에 따라 클래스 필드와 인스턴스 필드로 구분된다.
+//클래스 필드 : 1개만 생성되며 전역변수이며 클래스 이름으로 접근 (new와 관련 x)
+//인스턴스 필드 : new를 이용해서 원하는 만큼 생성 
+public class UserBank {
+	// 하나의 값을 가져야되는 애들은 클래스필드 사용
+	private String id= "noData";
+	private String pw= "noData";
+	private int account = 0;
+	public UserBank(String id, String pw, int account) {
+		super();// 부모의 생성자 호출 
+		this.id = id;
+		this.pw = pw;
+		this.account = account;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+	public int getAccount() {
+		return account;
+	}
+	public void setAccount(int account) {
+		this.account = account;
+	}
+	public UserBank() {
+	    this("u1","u1",0);
+	}
+	//4가지 만들어보자 , 생성자 , getter setter , toString , equals 
+	
+
+}

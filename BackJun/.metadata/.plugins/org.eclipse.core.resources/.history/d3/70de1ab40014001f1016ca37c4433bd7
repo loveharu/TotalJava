@@ -1,0 +1,29 @@
+package Date0517;
+
+import java.util.ArrayList;
+
+public class MyArrayList {
+
+	public int serialNumber = 3;
+	public int operationNumber= 1;
+	public String numberShape= "A";
+	public String cardShape= "하트";
+	public static void main(String[] args) {
+		ArrayList<Card> p1Deck = new ArrayList<Card>();
+		ArrayList<Card> p2Deck = new ArrayList<Card>();
+		for(int i = 1; i <= 6; i++)
+			arr.add(i);
+		
+		for(int i : arr)
+			System.out.print(i+" ");
+		
+		arr.add(2,9);
+		
+		System.out.println();
+		for(int i : arr)
+			System.out.print(i+" ");
+		
+		
+	}
+
+}
